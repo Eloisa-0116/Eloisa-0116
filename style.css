@@ -1,4 +1,3 @@
-/* General styles */
 * {
     margin: 0;
     padding: 0;
@@ -18,7 +17,7 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 10px 5%;
+    padding: 10px 10%;
 }
 
 header {
@@ -26,20 +25,18 @@ header {
     color: #fff;
     padding: 10px 0;
 }
-
 .logo {
-    display: flex;
-    align-items: center;
-    font-size: 24px;
-    font-weight: bold;
-}
+            display: flex;
+            align-items: center;
+            font-size: 30px;
+            font-weight: bold;
+        }
 
-.logo-img {
-    height: 40px;
-    width: 40px;
-    margin-right: 10px;
-}
-
+        .logo-img {
+            height: 60px;
+            width: 60px;
+            margin-right: 10px;
+        }
 nav {
     display: flex;
     align-items: center;
@@ -51,13 +48,13 @@ nav {
 }
 
 .nav-links li {
-    margin: 0 10px;
+    margin: 0 15px;
 }
 
 .nav-links a {
     color: #fff;
     text-decoration: none;
-    font-size: 14px;
+    font-size: 16px;
     transition: color 0.3s;
 }
 
@@ -68,7 +65,7 @@ nav {
 .cta {
     background: #ff9900;
     color: #fff;
-    padding: 8px 16px;
+    padding: 10px 20px;
     text-decoration: none;
     border-radius: 5px;
     transition: background 0.3s;
@@ -86,7 +83,7 @@ nav {
     flex-direction: column;
     color: #dfdfdf;
     text-align: center;
-    padding: 0 10px;
+    padding: 0 20px;
     background-color: #eef5f9;
     position: relative;
     overflow: hidden;
@@ -106,11 +103,12 @@ nav {
     width: 100%;
     height: 100%;
     background: 
-        linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
-        url('Plants.jpg') no-repeat center center/cover;
+                linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), /* Light dark transparent overlay */
+                url('Plants.jpg') no-repeat center center/cover;
     opacity: 1;
     transition: opacity 1s ease;
     z-index: 0;
+    
 }
 
 .hero.background-changed::before {
@@ -118,13 +116,13 @@ nav {
 }
 
 .hero h1 {
-    font-size: 36px;
-    margin-bottom: 15px;
+    font-size: 48px;
+    margin-bottom: 20px;
 }
 
 .hero p {
-    font-size: 18px;
-    margin-bottom: 15px;
+    font-size: 24px;
+    margin-bottom: 20px;
 }
 
 .btn-primary, .btn-secondary, .btn-tertiary {
@@ -166,30 +164,28 @@ nav {
 
 .services, .projects, .about-us, .testimonials, .contact {
     background-color: #fff;
-    padding: 10px;
+    padding: 6px 12px;
     text-align: center;
 }
 
 .services h2, .projects h2, .about-us h2, .testimonials h2, .contact h2 {
-    font-size: 24px;
-    margin-bottom: 20px;
+    font-size: 32px;
+    margin-bottom: 40px;
 }
 
 .service-boxes {
     display: flex;
+    justify-content: space-around;
     flex-wrap: wrap;
-    justify-content: center;
-    gap: 20px;
 }
 
 .service-box {
     background: #91be86;
-    padding: 20px;
-    width: 45%;
-    max-width: 300px;
+    padding: 30px;
+    width: 30%;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    margin-bottom: 20px;
+    margin-bottom: 30px;
     transition: transform 0.3s;
 }
 
@@ -198,41 +194,42 @@ nav {
 }
 
 .service-box .icon {
-    font-size: 24px;
-    margin-bottom: 10px;
+    font-size: 14px;
+    margin-bottom: 12px;
 }
 
 .projects {
-    padding: 30px 0;
+    text-align: center;
+    padding: 50px 0;
 }
 
 .project-list {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 20px;
-    padding: 20px;
-    justify-content: center;
-    align-items: center;
+    padding: 20px; 
+    justify-content: center; 
+    margin: 0 auto;
 }
 
 .project {
     position: relative;
     overflow: hidden;
     border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
 }
 
 .project img {
-    display: block;
+    display: block; /* Ensure image doesn't have extra space */
     width: 100%;
     height: auto;
-    object-fit: cover;
+    object-fit: cover; /* Maintain aspect ratio and cover entire container */
     transition: transform 0.3s ease;
-    border-radius: 8px;
+    border-radius: 8px; /* Rounded corners */
 }
 
 .project:hover img {
-    transform: scale(1.1);
+    transform: scale(1.1); /* Zoom effect on hover */
 }
 
 .overlay {
@@ -241,18 +238,18 @@ nav {
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.7);
+    background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent black background */
     color: white;
     display: flex;
     justify-content: center;
     align-items: center;
     opacity: 0;
     transition: opacity 0.3s ease;
-    border-radius: 8px;
+    border-radius: 8px; /* Match border-radius of .project */
 }
 
 .project:hover .overlay {
-    opacity: 1;
+    opacity: 1; /* Show overlay on hover */
 }
 
 .project-description {
@@ -261,37 +258,37 @@ nav {
 }
 
 .project-description h3 {
-    font-size: 20px;
+    font-size: 24px;
     margin-bottom: 10px;
 }
 
 .project-description p {
-    font-size: 14px;
+    font-size: 16px;
     line-height: 1.6;
     color: #ccc;
 }
 
 .project:hover .project-description {
-    color: white;
+    color: white; /* Change text color on hover */
 }
+
 
 .about-us .about-content {
     display: flex;
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
-    margin-top: 30px;
+    margin-top: 40px;
 }
 
 .about-us .about-content p {
-    flex: 1 1 100%;
+    flex: 1 1 60%;
     padding: 0 20px;
-    text-align: center;
 }
 
 .about-us .about-content img {
-    flex: 1 1 100%;
-    max-width: 250px;
+    flex: 1 1 30%;
+    max-width: 300px;
     border-radius: 10px;
     margin-top: 20px;
 }
@@ -300,7 +297,7 @@ nav {
     display: flex;
     justify-content: space-around;
     flex-wrap: wrap;
-    margin-top: 30px;
+    margin-top: 40px;
 }
 
 .testimonial-card {
@@ -308,13 +305,12 @@ nav {
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    margin-bottom: 20px;
 }
 
 .btn-primary {
     display: inline-block;
-    padding: 12px 24px;
-    font-size: 16px;
+    padding: 15px 30px;
+    font-size: 18px;
     font-weight: bold;
     text-decoration: none;
     color: #fff;
@@ -365,120 +361,12 @@ nav {
     margin: 0 5px;
     font-size: 20px;
 }
-
 .newsletter input {
-    width: calc(100% - 100px);
-    padding: 10px;
-    border-radius: 5px;
+    width: 150px;
+    padding: 5px;
+    border-radius: 3px;
     border: 1px solid #ccc;
     margin-right: 5px;
 }
 
-.newsletter button {
-    width: 100%;
-    padding: 10px;
-    background-color: #ff9900;
-    border: none;
-    color: #fff;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-}
 
-.newsletter button:hover {
-    background-color: #e68a00;
-}
-
-/* Media Queries for responsiveness */
-
-@media (max-width: 1024px) {
-    .container {
-        padding: 10px 3%;
-    }
-
-    .hero h1 {
-        font-size: 32px;
-        margin-bottom: 10px;
-    }
-
-    .hero p {
-        font-size: 18px;
-        margin-bottom: 10px;
-    }
-
-    .service-box {
-        width: 45%;
-        max-width: 250px;
-    }
-
-    .project-list {
-        padding: 10px;
-    }
-
-    .about-us .about-content img {
-        max-width: 200px;
-    }
-}
-
-@media (max-width: 768px) {
-    .nav-links {
-        display: none;
-        flex-direction: column;
-        position: fixed;
-        width: 100%;
-        top: 70px;
-        left: 0;
-        background-color: #253d26;
-        padding: 10px 0;
-        z-index: 1000;
-        transform: translateY(-100%);
-        transition: transform 0.3s ease-in;
-    }
-
-    .nav-links.active {
-        transform: translateY(0%);
-    }
-
-    .nav-links li {
-        margin: 10px 0;
-        text-align: center;
-    }
-
-    .nav-links a {
-        font-size: 18px;
-    }
-
-    .cta {
-        display: none;
-    }
-}
-
-@media (max-width: 480px) {
-    .hero h1 {
-        font-size: 28px;
-    }
-
-    .hero p {
-        font-size: 16px;
-    }
-
-    .service-box {
-        width: 100%;
-    }
-
-    .project-list {
-        grid-template-columns: 1fr;
-    }
-
-    .about-us .about-content {
-        flex-direction: column;
-    }
-
-    .about-us .about-content p {
-        text-align: left;
-    }
-
-    .about-us .about-content img {
-        max-width: 100%;
-    }
-}
