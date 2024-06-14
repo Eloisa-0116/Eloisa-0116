@@ -25,18 +25,20 @@ header {
     color: #fff;
     padding: 10px 0;
 }
-.logo {
-            display: flex;
-            align-items: center;
-            font-size: 30px;
-            font-weight: bold;
-        }
 
-        .logo-img {
-            height: 60px;
-            width: 60px;
-            margin-right: 10px;
-        }
+.logo {
+    display: flex;
+    align-items: center;
+    font-size: 30px;
+    font-weight: bold;
+}
+
+.logo-img {
+    height: 60px;
+    width: 60px;
+    margin-right: 10px;
+}
+
 nav {
     display: flex;
     align-items: center;
@@ -60,6 +62,116 @@ nav {
 
 .nav-links a:hover {
     color: #ff9900;
+}
+
+/* Responsive Navbar Toggle */
+.nav-toggle {
+    display: none; /* Hide checkbox by default */
+}
+
+.nav-toggle-label {
+    display: none; /* Hide label by default */
+    cursor: pointer;
+    padding: 10px;
+}
+
+.nav-toggle-label span,
+.nav-toggle-label span::before,
+.nav-toggle-label span::after {
+    display: block;
+    background-color: #fff;
+    height: 2px;
+    width: 25px;
+    border-radius: 2px;
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+.nav-toggle-label span::before,
+.nav-toggle-label span::after {
+    content: '';
+    position: absolute;
+}
+
+.nav-toggle-label span::before {
+    top: -8px;
+}
+
+.nav-toggle-label span::after {
+    top: 8px;
+}
+
+.nav-toggle:checked + .nav-toggle-label span {
+    background-color: transparent;
+}
+
+.nav-toggle:checked + .nav-toggle-label span::before {
+    top: 0;
+    transform: rotate(45deg);
+}
+
+.nav-toggle:checked + .nav-toggle-label span::after {
+    top: 0;
+    transform: rotate(-45deg);
+}
+
+@media screen and (max-width: 768px) {
+    .container {
+        flex-direction: column;
+        padding: 10px 5%;
+    }
+
+    .nav-links {
+        display: none; /* Hide navigation links by default */
+        flex-direction: column;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background-color: #253d26;
+        z-index: 10;
+        transition: max-height 0.3s ease-out;
+        max-height: 0;
+        overflow: hidden;
+    }
+
+    .nav-toggle {
+        display: block; /* Show checkbox in mobile view */
+    }
+
+    .nav-toggle-label {
+        display: block; /* Show label (hamburger menu) in mobile view */
+    }
+
+    .nav-toggle:checked ~ nav .nav-links {
+        display: flex; /* Show navigation links when checkbox is checked */
+        max-height: 300px; /* Adjust as needed */
+    }
+
+    .nav-links li {
+        margin: 10px 0; /* Adjust margin for mobile view */
+    }
+
+    .nav-links a {
+        padding: 10px;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        opacity: 0; /* Start with opacity 0 for fade-in effect */
+        animation: fadeIn 0.5s forwards; /* Animation for fade-in effect */
+        animation-delay: 0.3s; /* Delay each list item animation */
+    }
+
+    @keyframes fadeIn {
+        0% {
+            opacity: 0;
+            transform: translateY(-20px);
+        }
+        100% {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
 }
 
 .cta {
@@ -103,12 +215,11 @@ nav {
     width: 100%;
     height: 100%;
     background: 
-                linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), /* Light dark transparent overlay */
-                url('Plants.jpg') no-repeat center center/cover;
+        linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), /* Light dark transparent overlay */
+        url('Plants.jpg') no-repeat center center/cover;
     opacity: 1;
     transition: opacity 1s ease;
     z-index: 0;
-    
 }
 
 .hero.background-changed::before {
@@ -123,6 +234,16 @@ nav {
 .hero p {
     font-size: 24px;
     margin-bottom: 20px;
+}
+
+@media screen and (max-width: 768px) {
+    .hero h1 {
+        font-size: 32px;
+    }
+
+    .hero p {
+        font-size: 18px;
+    }
 }
 
 .btn-primary, .btn-secondary, .btn-tertiary {
@@ -173,6 +294,13 @@ nav {
     margin-bottom: 40px;
 }
 
+@media screen and (max-width: 768px) {
+    .services h2, .projects h2, .about-us h2, .testimonials h2, .contact h2 {
+        font-size: 24px;
+        margin-bottom: 20px;
+    }
+}
+
 .service-boxes {
     display: flex;
     justify-content: space-around;
@@ -191,6 +319,13 @@ nav {
 
 .service-box:hover {
     transform: translateY(-5px);
+}
+
+@media screen and (max-width: 768px) {
+    .service-box {
+        width: 100%;
+        margin-bottom: 20px;
+    }
 }
 
 .service-box .icon {
@@ -272,7 +407,6 @@ nav {
     color: white; /* Change text color on hover */
 }
 
-
 .about-us .about-content {
     display: flex;
     justify-content: center;
@@ -293,6 +427,23 @@ nav {
     margin-top: 20px;
 }
 
+@media screen and (max-width: 768px) {
+    .about-us .about-content {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .about-us .about-content p {
+        flex: 1 1 100%;
+        padding: 10px 20px;
+    }
+
+    .about-us .about-content img {
+        flex: 1 1 100%;
+        max-width: 100%;
+    }
+}
+
 .testimonials .testimonial-cards {
     display: flex;
     justify-content: space-around;
@@ -305,36 +456,20 @@ nav {
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+    width: 30%;
+    transition: transform 0.3s;
 }
 
-.btn-primary {
-    display: inline-block;
-    padding: 15px 30px;
-    font-size: 18px;
-    font-weight: bold;
-    text-decoration: none;
-    color: #fff;
-    background-color: #ff9900;
-    border-radius: 30px;
-    border: 2px solid #ff9900;
-    transition: all 0.3s ease;
+.testimonial-card:hover {
+    transform: translateY(-5px);
 }
 
-.btn-primary:hover {
-    background-color: transparent;
-    color: #ff9900;
-}
-
-.btn-primary::before {
-    content: '\f178';
-    font-family: 'Font Awesome 5 Free';
-    font-weight: 900;
-    margin-right: 10px;
-    transition: transform 0.3s ease;
-}
-
-.btn-primary:hover::before {
-    transform: rotate(360deg);
+@media screen and (max-width: 768px) {
+    .testimonial-card {
+        width: 100%;
+        margin-bottom: 20px;
+    }
 }
 
 .footer {
@@ -361,6 +496,7 @@ nav {
     margin: 0 5px;
     font-size: 20px;
 }
+
 .newsletter input {
     width: 150px;
     padding: 5px;
@@ -369,4 +505,19 @@ nav {
     margin-right: 5px;
 }
 
+@media screen and (max-width: 768px) {
+    .footer-content {
+        flex-direction: column;
+        text-align: center;
+    }
 
+    .social-media a {
+        margin: 5px;
+        font-size: 18px;
+    }
+
+    .newsletter input {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+}
